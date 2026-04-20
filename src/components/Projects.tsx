@@ -1,6 +1,12 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 
+// ✅ IMPORT IMAGES (added)
+import groceryImg from '../assets/grocery.png';
+import sketchImg from '../assets/sketch.png';
+import portfolioImg from '../assets/portfolio.png';
+import codeImg from '../assets/code_obfuscator.png';
+
 const Projects = () => {
   const [filter, setFilter] = useState('All');
 
@@ -8,7 +14,7 @@ const Projects = () => {
     {
       title: 'Online Grocery Delivery App',
       description: 'Complete grocery shopping system built as a BigBasket clone with scalable architecture, secure authentication, and admin workflows.',
-      image: '/grocery.png',
+      image: groceryImg, // ✅ fixed
       technologies: ['Node.js', 'Express', 'MongoDB', 'React'],
       category: 'Full Stack',
       github: 'https://github.com/KRATISH07/Online-Grocery-Delivery-App',
@@ -16,7 +22,7 @@ const Projects = () => {
     {
       title: 'Sketch It',
       description: 'Multiplayer sketch-and-guess game with real-time drawing, role-based gameplay, and live communication using Socket.io.',
-      image: '/sketch.png',
+      image: sketchImg, // ✅ fixed
       technologies: ['Node.js', 'Socket.io', 'Express', 'JavaScript'],
       category: 'Game',
       github: 'https://github.com/KRATISH07/Sketch-It',
@@ -24,7 +30,7 @@ const Projects = () => {
     {
       title: 'Portfolio Website',
       description: 'A modern personal portfolio showcasing projects, experience, and skills using React, Tailwind CSS, and motion animations.',
-      image: '/portfolio.png',
+      image: portfolioImg, // ✅ fixed
       technologies: ['React', 'Tailwind CSS', 'Framer Motion'],
       category: 'Frontend',
       github: 'https://github.com/KRATISH07/portfolio',
@@ -32,7 +38,7 @@ const Projects = () => {
     {
       title: 'Code Obfuscator & Decoder System',
       description: 'A Java-based backend system that obfuscates code using logic transformations, random code injection, and variable renaming, with a decode feature to restore original code.',
-      image: '/code_obfuscator.png',
+      image: codeImg, // ✅ fixed
       technologies: ['Java', 'Algorithms', 'Encoding', 'Decoding'],
       category: 'Backend',
       github: 'https://github.com/KRATISH07/code-obfuscator',

@@ -3,6 +3,9 @@ import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
 
+// ✅ IMPORT LOGO (added)
+import logo from '../assets/logo.svg';
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -21,7 +24,8 @@ const Navbar = () => {
             whileHover={{ scale: 1.05 }}
             className="flex items-center"
           >
-            <img src="/logo.svg" alt="KM Logo" className="h-10 w-10" />
+            {/* ✅ FIXED IMAGE */}
+            <img src={logo} alt="KM Logo" className="h-10 w-10" />
           </motion.div>
 
           {/* Desktop Menu */}
