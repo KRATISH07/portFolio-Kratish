@@ -77,7 +77,7 @@ const Hero = () => {
               {text}<span className="animate-pulse text-white">|</span>
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <a href="/205124045_Kratish_Mewada.pdf" download className="inline-flex items-center justify-center rounded-full bg-highlight px-8 py-3 text-base font-semibold text-white shadow-lg shadow-blue-500/30 transition duration-300 hover:-translate-y-0.5 hover:scale-[1.02]">
+              <a href={`${import.meta.env.BASE_URL}205124045_Kratish_Mewada.pdf`} download className="inline-flex items-center justify-center rounded-full bg-highlight px-8 py-3 text-base font-semibold text-white shadow-lg shadow-blue-500/30 transition duration-300 hover:-translate-y-0.5 hover:scale-[1.02]">
                 <FaDownload className="mr-2" /> Resume
               </a>
               <Link to="contact" smooth={true} className="inline-flex items-center justify-center rounded-full bg-[#0f1727] border border-highlight/20 px-8 py-3 text-base font-semibold text-text shadow-lg shadow-blue-500/20 transition duration-300 hover:bg-highlight/10 hover:text-text">
@@ -94,7 +94,7 @@ const Hero = () => {
           >
             <div className="absolute -inset-6 rounded-[3rem] bg-gradient-to-br from-highlight/25 via-accent/15 to-transparent blur-3xl" />
             <div className="relative overflow-hidden rounded-[2.5rem] border border-highlight/20 bg-[#0b1221]/90 shadow-2xl">
-              <img src="/profile.jpg" alt="Profile" className="h-[520px] w-full object-cover object-[center_85%]" />
+              <img src={`${import.meta.env.BASE_URL}profile.jpg`} alt="Profile" className="h-[520px] w-full object-cover object-[center_85%]" />
               <div className="absolute inset-0 bg-gradient-to-t from-[#07080f]/95 to-transparent" />
               <div className="absolute inset-x-0 bottom-0 rounded-b-[2.5rem] bg-gradient-to-t from-[#07080f]/85 to-transparent px-6 pt-12 pb-10">
                 <div className="space-y-4 mt-2">
