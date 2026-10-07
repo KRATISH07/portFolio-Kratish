@@ -1,8 +1,9 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-scroll';
-import { FaArrowDown, FaEnvelope, FaFileDownload } from 'react-icons/fa';
+import { FaArrowDown, FaEnvelope, FaFileDownload, FaFileWord } from 'react-icons/fa';
 
-const resumeUrl = `${import.meta.env.BASE_URL}205124045_Kratish_Mewada.pdf`;
+const resumeUrl = `${import.meta.env.BASE_URL}Kratish_Mewada_Resume.pdf`;
+const wordResumeUrl = `${import.meta.env.BASE_URL}Kratish_Mewada_Resume.docx`;
 
 const Hero = () => (
   <section id="hero" className="relative flex min-h-[90vh] items-center overflow-hidden pt-24 pb-16">
@@ -21,7 +22,10 @@ const Hero = () => (
         <p className="mt-5 font-mono text-sm text-accent sm:text-base">Backend Engineering <span className="px-2 text-white/30">/</span> AI &amp; LLM Systems</p>
         <div className="mt-9 flex flex-wrap gap-3">
           <a href={resumeUrl} download className="inline-flex items-center gap-2 rounded-xl bg-highlight px-5 py-3 font-semibold text-[#07101d] shadow-lg shadow-highlight/15 transition hover:-translate-y-0.5 hover:brightness-110">
-            <FaFileDownload /> Download résumé
+            <FaFileDownload /> PDF résumé
+          </a>
+          <a href={wordResumeUrl} download className="inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/[.04] px-5 py-3 font-semibold text-text transition hover:border-accent/50 hover:bg-white/[.08]">
+            <FaFileWord /> DOCX
           </a>
           <Link to="contact" smooth offset={-72} className="inline-flex cursor-pointer items-center gap-2 rounded-xl border border-white/15 bg-white/[.04] px-5 py-3 font-semibold text-text transition hover:border-accent/50 hover:bg-white/[.08]">
             <FaEnvelope /> Contact me

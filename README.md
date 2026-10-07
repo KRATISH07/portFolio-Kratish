@@ -30,3 +30,8 @@ Deploy the `dist` directory to the configured GitHub Pages `gh-pages` branch wit
 ```sh
 npm run deploy
 ```
+
+## Résumé downloads
+
+- [PDF résumé](https://kratish07.github.io/portFolio-Kratish/Kratish_Mewada_Resume.pdf)
+- [DOCX résumé](https://kratish07.github.io/portFolio-Kratish/Kratish_Mewada_Resume.docx)
