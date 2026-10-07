@@ -29,7 +29,7 @@ const projects = [
     mark: 'PREP / PLAN / PRACTICE',
     description: 'A Kotlin Android app built with a teammate for organizing placement preparation: plan study sessions, track progress, bookmark questions, and search a bundled company-question collection offline. Groq features add study plans, doubt help, and interview feedback; the dataset contains 17,826 questions from 659 companies.',
     technologies: ['Kotlin', 'Jetpack Compose', 'Room', 'DataStore', 'Groq'],
-    facts: '32 MB APK · Android 8.0+ (API 26+) · target SDK 35',
+    facts: '32 MB APK · Android 8.0+ (SDK 26+) · target SDK 35',
     github: 'https://github.com/KRATISH07/placement-companion',
     theme: 'from-cyan-500/20 via-teal-500/10 to-transparent',
   },
