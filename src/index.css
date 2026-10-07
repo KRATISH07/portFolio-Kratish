@@ -23,11 +23,43 @@ button, a { -webkit-tap-highlight-color: transparent; }
 :focus-visible { outline: 2px solid #47c8e8; outline-offset: 3px; }
 ::selection { color: #07101d; background: #a8d9ff; }
 
+.ambient-grid {
+  opacity: .2;
+  background-image: linear-gradient(rgba(148, 163, 184, .055) 1px, transparent 1px), linear-gradient(90deg, rgba(148, 163, 184, .055) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: linear-gradient(to bottom, black, transparent 78%);
+}
+.ambient-blob-one { animation: drift-one 18s ease-in-out infinite alternate; }
+.ambient-blob-two { animation: drift-two 22s ease-in-out infinite alternate; }
+.project-art::after {
+  position: absolute;
+  inset: 0;
+  content: '';
+  background: linear-gradient(110deg, transparent 25%, rgba(255,255,255,.09) 48%, transparent 68%);
+  transform: translateX(-110%);
+  transition: transform .8s ease;
+}
+.group:hover .project-art::after { transform: translateX(110%); }
+.project-orbit { animation: orbit-breathe 8s ease-in-out infinite; }
+.project-orbit-delay { animation-delay: -4s; }
+.gradient-text {
+  color: transparent;
+  background: linear-gradient(100deg, #a8d9ff, #61d9e8 45%, #a78bfa 85%);
+  background-size: 180% 100%;
+  background-clip: text;
+  animation: gradient-shift 8s ease-in-out infinite alternate;
+}
+@keyframes drift-one { from { transform: translate3d(0,0,0) scale(1); } to { transform: translate3d(50px,-35px,0) scale(1.12); } }
+@keyframes drift-two { from { transform: translate3d(0,0,0) scale(1); } to { transform: translate3d(-45px,30px,0) scale(.9); } }
+@keyframes orbit-breathe { 0%,100% { transform: scale(.96) rotate(0deg); opacity: .55; } 50% { transform: scale(1.06) rotate(14deg); opacity: 1; } }
+@keyframes gradient-shift { from { background-position: 0% 50%; } to { background-position: 100% 50%; } }
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     scroll-behavior: auto !important;
     animation-duration: .01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: .01ms !important;
+    animation-duration: .01ms !important;
   }
 }
