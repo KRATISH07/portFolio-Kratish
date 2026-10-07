@@ -3,6 +3,15 @@ import { useState } from 'react';
 
 const projects = [
   {
+    title: 'Camel Body Segmentation',
+    subtitle: 'NIT Trichy internship project · comparison phase in progress',
+    category: 'Computer vision',
+    mark: 'SEGMENT / MEASURE / COMPARE',
+    description: 'Trained YOLO11s-Seg on a custom polygon-annotated camel dataset and integrated image upload and segmentation-result visualization in Flask. The current extension compares normalized body-part ratios with a selected reference group; this is an image-based similarity experiment, not an objective beauty judgment.',
+    technologies: ['Python', 'YOLO11s-Seg', 'Roboflow', 'Flask', 'Computer Vision'],
+    theme: 'from-lime-400/20 via-emerald-500/10 to-transparent',
+  },
+  {
     title: 'ASIP',
     subtitle: 'Autonomous Society Infrastructure Platform',
     category: 'AI systems',
@@ -91,7 +100,7 @@ const Projects = () => {
                   {project.technologies.map((technology) => <span key={technology} className="rounded-md bg-white/[.05] px-2.5 py-1 text-xs text-text-muted">{technology}</span>)}
                 </div>
                 <div className="mt-6 flex gap-4 border-t border-white/[.07] pt-4 text-sm font-semibold">
-                  <a href={project.github} target="_blank" rel="noreferrer" className="text-white transition hover:text-highlight">GitHub <span aria-hidden="true">↗</span></a>
+                  {'github' in project && <a href={project.github} target="_blank" rel="noreferrer" className="text-white transition hover:text-highlight">GitHub <span aria-hidden="true">↗</span></a>}
                   {'demo' in project && <a href={project.demo} target="_blank" rel="noreferrer" className="text-text-muted transition hover:text-accent">Live demo <span aria-hidden="true">↗</span></a>}
                 </div>
               </div>
