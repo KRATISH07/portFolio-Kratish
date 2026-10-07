@@ -4,7 +4,7 @@ import { useState } from 'react';
 const projects = [
   {
     title: 'Camel Body Segmentation',
-    subtitle: 'NIT Trichy internship project · comparison phase in progress',
+    subtitle: 'NIT Trichy internship · Jun–Jul 2026 · comparison in progress',
     category: 'Computer vision',
     mark: 'SEGMENT / MEASURE / COMPARE',
     description: 'For the NIT Trichy internship, prepared a 284-image polygon-annotated dataset and trained YOLO11s-Seg to label camel head, legs, hump, tail, and stomach. A Flask interface accepts an image and displays the segmentation. The in-progress extension will compare normalized body ratios with selected reference camels; it is an image-based experiment, not an objective beauty judgment.',

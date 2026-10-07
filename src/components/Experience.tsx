@@ -9,7 +9,7 @@ const Experience = () => (
         <motion.article initial={false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: .25 }} transition={{ duration: .45 }} className="mt-8 rounded-2xl border border-white/[.08] bg-[#0d1522] p-6 sm:p-7">
           <div className="flex flex-wrap items-start justify-between gap-3">
             <div><h3 className="text-xl font-semibold text-white">AI/ML Intern</h3><p className="mt-1 text-text-muted">National Institute of Technology Tiruchirappalli</p></div>
-            <span className="rounded-full border border-white/10 px-3 py-1 text-xs text-text-muted">Internship</span>
+            <span className="rounded-full border border-white/10 px-3 py-1 text-xs text-text-muted">Jun – Jul 2026</span>
           </div>
           <ul className="mt-5 space-y-3 text-sm leading-7 text-text-muted">
             <li>Built a camel body-part segmentation system with YOLO11s-Seg, trained on a custom polygon-annotated dataset.</li>
