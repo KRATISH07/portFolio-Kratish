@@ -1,53 +1,47 @@
 import { motion } from 'framer-motion';
 
-const Experience = () => {
-  const experiences = [
-    {
-      year: 'May 1 – June 20',
-      title: 'AI/ML Intern at NIT Trichy',
-      company: 'NIT Trichy',
-      description: 'Worked on an anomaly detection system using machine learning models to identify unusual patterns in datasets. Performed data preprocessing, feature engineering, and model evaluation to improve detection accuracy. Focused on scalable backend integration and performance optimization.',
-    },
-    {
-      year: 'May 2025 - Jun 2025',
-      title: 'Internship Training Program',
-      company: 'Vected Technologies Pvt. Ltd., Indore',
-      description: 'Completed internship training focused on complete grocery shopping platform development using Node.js, Express, MongoDB, and full-stack integration best practices.',
-    },
-    {
-      year: '2024 - Present',
-      title: 'MCA Student',
-      company: 'Master of Computer Applications',
-      description: 'Pursuing MCA with a focus on software engineering, web development, and scalable application architecture.',
-    },
-  ];
+const Experience = () => (
+  <section id="experience" className="border-y border-white/[.06] bg-white/[.018] py-24 sm:py-28">
+    <div className="mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-2 lg:px-10">
+      <div>
+        <p className="text-sm font-semibold uppercase tracking-[.22em] text-accent">Experience</p>
+        <h2 className="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl">Learning by building with a team.</h2>
+        <motion.article initial={false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: .25 }} transition={{ duration: .45 }} className="mt-8 rounded-2xl border border-white/[.08] bg-[#0d1522] p-6 sm:p-7">
+          <div className="flex flex-wrap items-start justify-between gap-3">
+            <div><h3 className="text-xl font-semibold text-white">Backend Developer Intern</h3><p className="mt-1 text-text-muted">Vected Technologies Pvt. Ltd. · Indore</p></div>
+            <span className="rounded-full border border-white/10 px-3 py-1 text-xs text-text-muted">May – Jun 2025</span>
+          </div>
+          <ul className="mt-5 space-y-3 text-sm leading-7 text-text-muted">
+            <li>Contributed to a BigBasket-inspired grocery commerce platform during a two-month internship.</li>
+            <li>Built 7+ REST API endpoints and implemented JWT authentication and CRUD operations.</li>
+            <li>Validated API workflows with Postman and worked with a teammate to deliver features.</li>
+          </ul>
+        </motion.article>
+      </div>
 
-  return (
-    <section id="experience" className="py-20 bg-gradient-to-b from-secondary to-primary">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl font-bold text-text text-center mb-12">Experience</h2>
-        <div className="relative">
-          <div className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-highlight h-full"></div>
-          {experiences.map((exp, index) => (
-            <motion.div
-              key={exp.title}
-              initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
-              className={`flex ${index % 2 === 0 ? 'justify-start' : 'justify-end'} mb-8 relative`}
-            >
-              <div className="bg-primary/40 p-6 rounded-xl w-full md:w-1/2 backdrop-blur-xl border border-highlight/20 shadow-xl">
-                <h3 className="text-xl font-bold text-text">{exp.title}</h3>
-                <p className="text-highlight">{exp.company} - {exp.year}</p>
-                <p className="text-text mt-3 leading-relaxed">{exp.description}</p>
-              </div>
-              <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-highlight rounded-full border-4 border-primary"></div>
-            </motion.div>
-          ))}
+      <div>
+        <p className="text-sm font-semibold uppercase tracking-[.22em] text-accent">Education &amp; leadership</p>
+        <h2 className="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl">Education and campus involvement.</h2>
+        <div className="mt-8 space-y-4">
+          <article className="rounded-2xl border border-white/[.08] bg-[#0d1522] p-6">
+            <p className="text-xs font-semibold uppercase tracking-[.16em] text-highlight">Expected 2027 · GPA 7.73/10</p>
+            <h3 className="mt-2 text-lg font-semibold text-white">Master of Computer Applications</h3>
+            <p className="mt-1 text-sm text-text-muted">National Institute of Technology Tiruchirappalli</p>
+          </article>
+          <article className="rounded-2xl border border-white/[.08] bg-[#0d1522] p-6">
+            <p className="text-xs font-semibold uppercase tracking-[.16em] text-highlight">2024 · GPA 8.06/10</p>
+            <h3 className="mt-2 text-lg font-semibold text-white">B.Sc. in Computer Science</h3>
+            <p className="mt-1 text-sm text-text-muted">Sanskar College of Professional Studies, Indore</p>
+          </article>
+          <article className="rounded-2xl border border-white/[.08] bg-[#0d1522] p-6">
+            <p className="text-xs font-semibold uppercase tracking-[.16em] text-highlight">Volunteer · Mar 2025</p>
+            <h3 className="mt-2 text-lg font-semibold text-white">VERSION’25 · NIT Trichy</h3>
+            <p className="mt-2 text-sm leading-6 text-text-muted">Coordinated logistics for the 3-day All India MCA Meet, supporting 130+ participants from 30+ institutions and 11 technical and non-technical events.</p>
+          </article>
         </div>
       </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);
 
 export default Experience;

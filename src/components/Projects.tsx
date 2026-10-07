@@ -1,131 +1,101 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 
-// ✅ IMPORT IMAGES (added)
-import groceryImg from '../assets/grocery.png';
-import sketchImg from '../assets/sketch.png';
-import portfolioImg from '../assets/portfolio.png';
-import codeImg from '../assets/code_obfuscator.png';
+const projects = [
+  {
+    title: 'ASIP',
+    subtitle: 'Autonomous Society Infrastructure Platform',
+    category: 'AI systems',
+    mark: 'ASIP / 07 agents',
+    description: 'An AI-assisted incident-management platform that diagnoses infrastructure issues, estimates impact, supports contractor selection, and keeps residents informed.',
+    technologies: ['FastAPI', 'PostgreSQL', 'LangGraph', 'RAG', 'ChromaDB'],
+    github: 'https://github.com/KRATISH07/ASIP',
+    demo: 'https://asip-ai.vercel.app',
+    theme: 'from-indigo-500/20 via-blue-500/10 to-transparent',
+  },
+  {
+    title: 'Placement Companion',
+    subtitle: 'Android placement preparation app',
+    category: 'Android',
+    mark: 'PREP / PLAN / PRACTICE',
+    description: 'A two-person project for planning study sessions and preparing for interviews, with offline company-question search, bookmarks, and Groq-powered study and interview assistance.',
+    technologies: ['Kotlin', 'Jetpack Compose', 'Room', 'DataStore', 'Groq'],
+    facts: '32 MB APK · Android 8.0+ (API 26+) · target SDK 35',
+    github: 'https://github.com/KRATISH07/placement-companion',
+    theme: 'from-cyan-500/20 via-teal-500/10 to-transparent',
+  },
+  {
+    title: 'Code Obfuscator',
+    subtitle: 'Configurable C++ source obfuscation',
+    category: 'Developer tools',
+    mark: 'SOURCE → TRANSFORM',
+    description: 'A web tool for applying configurable source transformations, including identifier renaming, junk-code insertion, opaque predicates, string obfuscation, and numeric-literal masking.',
+    technologies: ['C++', 'Python', 'Flask', 'JavaScript'],
+    github: 'https://github.com/KRATISH07/code-obfuscator',
+    theme: 'from-amber-400/20 via-orange-500/10 to-transparent',
+  },
+  {
+    title: 'Sketch It',
+    subtitle: 'Real-time multiplayer drawing game',
+    category: 'Real-time',
+    mark: 'DRAW / GUESS / REPEAT',
+    description: 'A sketch-and-guess game with live drawing, chat, player roles, automatic drawer rotation, and synchronized round scoring over Socket.io.',
+    technologies: ['Node.js', 'Express.js', 'Socket.io', 'JavaScript'],
+    github: 'https://github.com/KRATISH07/Sketch-It',
+    theme: 'from-fuchsia-500/20 via-violet-500/10 to-transparent',
+  },
+];
+
+const categories = ['All', ...new Set(projects.map((project) => project.category))];
 
 const Projects = () => {
   const [filter, setFilter] = useState('All');
-
-  const projects = [
-    {
-      title: 'Online Grocery Delivery App',
-      description: 'Complete grocery shopping system built as a BigBasket clone with scalable architecture, secure authentication, and admin workflows.',
-      image: groceryImg, // ✅ fixed
-      technologies: ['Node.js', 'Express', 'MongoDB', 'React'],
-      category: 'Full Stack',
-      github: 'https://github.com/KRATISH07/Online-Grocery-Delivery-App',
-    },
-    {
-      title: 'Sketch It',
-      description: 'Multiplayer sketch-and-guess game with real-time drawing, role-based gameplay, and live communication using Socket.io.',
-      image: sketchImg, // ✅ fixed
-      technologies: ['Node.js', 'Socket.io', 'Express', 'JavaScript'],
-      category: 'Game',
-      github: 'https://github.com/KRATISH07/Sketch-It',
-    },
-    {
-      title: 'Portfolio Website',
-      description: 'A modern personal portfolio showcasing projects, experience, and skills using React, Tailwind CSS, and motion animations.',
-      image: portfolioImg, // ✅ fixed
-      technologies: ['React', 'Tailwind CSS', 'Framer Motion'],
-      category: 'Frontend',
-      github: 'https://github.com/KRATISH07/portfolio',
-    },
-    {
-      title: 'Code Obfuscator & Decoder System',
-      description: 'A Java-based backend system that obfuscates code using logic transformations, random code injection, and variable renaming, with a decode feature to restore original code.',
-      image: codeImg, // ✅ fixed
-      technologies: ['Java', 'Algorithms', 'Encoding', 'Decoding'],
-      category: 'Backend',
-      github: 'https://github.com/KRATISH07/code-obfuscator',
-    },
-  ];
-
-  const categories = ['All', 'Full Stack', 'Game', 'Frontend', 'Backend'];
-
-  const filteredProjects =
-    filter === 'All'
-      ? projects
-      : projects.filter((project) => project.category === filter);
+  const visibleProjects = filter === 'All' ? projects : projects.filter((project) => project.category === filter);
 
   return (
-    <section id="projects" className="py-24 bg-[#070919] relative overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(139,92,246,0.12),_transparent_25%),radial-gradient(circle_at_bottom_right,_rgba(59,130,246,0.1),_transparent_20%)] pointer-events-none" />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 25 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.55 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold text-text mb-4">Featured Projects</h2>
-          <div className="mx-auto mb-8 h-1 w-28 rounded-full bg-gradient-to-r from-highlight to-accent" />
-          <p className="mx-auto max-w-2xl text-lg text-text/70">
-            A curated selection of projects from my MCA journey and professional training.
-          </p>
-        </motion.div>
+    <section id="projects" className="py-24 sm:py-28">
+      <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
+        <div className="mb-10 flex flex-col justify-between gap-6 md:flex-row md:items-end">
+          <div className="max-w-2xl">
+            <p className="text-sm font-semibold uppercase tracking-[.22em] text-accent">Selected work</p>
+            <h2 className="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl">Projects built to solve real problems.</h2>
+          </div>
+          <p className="max-w-md leading-7 text-text-muted">A mix of backend systems, AI applications, mobile software, and real-time experiences.</p>
+        </div>
 
-        <motion.div className="flex flex-wrap items-center justify-center gap-4 mb-12">
+        <div className="mb-8 flex flex-wrap gap-2" aria-label="Filter projects">
           {categories.map((category) => (
-            <motion.button
-              key={category}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => setFilter(category)}
-              className={`px-5 py-2 rounded-full text-sm font-medium transition duration-300 ${
-                filter === category
-                  ? 'bg-highlight text-white shadow-lg shadow-blue-500/25'
-                  : 'bg-[#0b1124] text-text/70 border border-white/10 hover:border-highlight/30 hover:text-text'
-              }`}
-            >
+            <button key={category} type="button" onClick={() => setFilter(category)} aria-pressed={filter === category} className={`rounded-full border px-4 py-2 text-sm transition ${filter === category ? 'border-highlight bg-highlight text-[#07101d]' : 'border-white/10 bg-white/[.03] text-text-muted hover:border-white/25 hover:text-white'}`}>
               {category}
-            </motion.button>
+            </button>
           ))}
-        </motion.div>
+        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {filteredProjects.map((project, index) => (
-            <motion.div
-              key={project.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="bg-[#111827] rounded-xl p-4 flex flex-col h-full"
-            >
-              <div className="overflow-hidden rounded-xl">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-56 object-cover rounded-xl transition-transform duration-300 hover:scale-105"
-                  onError={() => console.error('Project image failed to load:', project.title)}
-                />
+        <div className="grid gap-5 md:grid-cols-2">
+          {visibleProjects.map((project, index) => (
+            <motion.article key={project.title} initial={false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: .12 }} transition={{ duration: .45, delay: index * .05 }} className="group flex h-full flex-col overflow-hidden rounded-2xl border border-white/[.08] bg-[#0d1522] transition hover:-translate-y-1 hover:border-white/[.16] hover:shadow-2xl hover:shadow-black/20">
+              <div className={`relative flex h-36 items-end overflow-hidden bg-gradient-to-br ${project.theme} p-6`}>
+                <div className="absolute -right-5 -top-16 h-48 w-48 rounded-full border border-white/[.06]" />
+                <div className="absolute -right-1 -top-8 h-32 w-32 rounded-full border border-white/[.08]" />
+                <span className="relative font-mono text-xs font-semibold tracking-[.18em] text-white/70">{project.mark}</span>
+                <span className="absolute right-6 top-5 text-5xl font-bold tracking-tight text-white/[.08]">0{index + 1}</span>
               </div>
-              <div className="flex flex-col flex-grow justify-between mt-4">
-                <div>
-                  <span className="inline-flex rounded-full bg-highlight/15 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-highlight">
-                    {project.category}
-                  </span>
-                  <h3 className="mt-4 text-2xl font-semibold text-text">{project.title}</h3>
-                  <p className="mt-3 text-text/70 leading-relaxed text-sm">{project.description}</p>
+              <div className="flex flex-1 flex-col p-6 sm:p-7">
+                <div className="flex flex-wrap items-start justify-between gap-3">
+                  <div><h3 className="text-xl font-semibold text-white">{project.title}</h3><p className="mt-1 text-sm text-text-muted">{project.subtitle}</p></div>
+                  <span className="rounded-full border border-white/10 px-3 py-1 text-xs text-text-muted">{project.category}</span>
                 </div>
-                <div className="mt-6 flex flex-wrap items-center justify-between gap-3">
-                  <div className="flex flex-wrap gap-2">
-                    {project.technologies.map((tech) => (
-                      <span key={tech} className="rounded-full border border-highlight/10 bg-highlight/10 px-3 py-1 text-[11px] text-highlight">
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                  <a href={project.github} target="_blank" rel="noreferrer" className="inline-flex items-center rounded-full bg-[#0f1727] px-4 py-2 text-sm font-semibold text-text transition hover:bg-white/5">
-                    GitHub
-                  </a>
+                <p className="mt-5 flex-1 text-sm leading-7 text-text-muted">{project.description}</p>
+                {project.facts && <p className="mt-4 rounded-xl border border-accent/20 bg-accent/[.06] px-3 py-2 text-xs font-medium leading-5 text-accent">{project.facts}</p>}
+                <div className="mt-5 flex flex-wrap gap-2">
+                  {project.technologies.map((technology) => <span key={technology} className="rounded-md bg-white/[.05] px-2.5 py-1 text-xs text-text-muted">{technology}</span>)}
+                </div>
+                <div className="mt-6 flex gap-4 border-t border-white/[.07] pt-4 text-sm font-semibold">
+                  <a href={project.github} target="_blank" rel="noreferrer" className="text-white transition hover:text-highlight">GitHub <span aria-hidden="true">↗</span></a>
+                  {'demo' in project && <a href={project.demo} target="_blank" rel="noreferrer" className="text-text-muted transition hover:text-accent">Live demo <span aria-hidden="true">↗</span></a>}
                 </div>
               </div>
-            </motion.div>
+            </motion.article>
           ))}
         </div>
       </div>

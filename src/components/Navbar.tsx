@@ -1,106 +1,44 @@
-import { Link } from 'react-scroll';
-import { motion } from 'framer-motion';
 import { useState } from 'react';
+import { Link } from 'react-scroll';
 import { FaBars, FaTimes } from 'react-icons/fa';
 
-// ✅ IMPORT LOGO (added)
-import logo from '../assets/logo.svg';
+const items = [
+  { to: 'about', label: 'About' },
+  { to: 'skills', label: 'Skills' },
+  { to: 'projects', label: 'Projects' },
+  { to: 'experience', label: 'Experience' },
+  { to: 'achievements', label: 'Achievements' },
+  { to: 'contact', label: 'Contact' },
+];
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const toggleMenu = () => setIsOpen(!isOpen);
-
   return (
-    <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
-      className="fixed top-0 w-full bg-primary/90 backdrop-blur-xl z-50 border-b border-highlight/20 shadow-2xl"
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            className="flex items-center"
-          >
-            {/* ✅ FIXED IMAGE */}
-            <img src={logo} alt="KM Logo" className="h-10 w-10" />
-          </motion.div>
-
-          {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-8">
-            {[
-              { to: 'hero', label: 'Home' },
-              { to: 'about', label: 'About' },
-              { to: 'skills', label: 'Skills' },
-              { to: 'projects', label: 'Projects' },
-              { to: 'experience', label: 'Experience' },
-              { to: 'contact', label: 'Contact' },
-            ].map((item, index) => (
-              <motion.div
-                key={item.to}
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
-                <Link
-                  to={item.to}
-                  smooth={true}
-                  className="text-text hover:text-highlight transition-colors cursor-pointer relative group px-3 py-2 rounded-lg hover:bg-highlight/10"
-                >
-                  {item.label}
-                  <span className="absolute -bottom-1 left-1/2 w-0 h-0.5 bg-highlight group-hover:w-1/2 transition-all duration-300 transform -translate-x-1/2"></span>
-                </Link>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center space-x-4">
-            <motion.button
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={toggleMenu}
-              className="p-2 rounded-full bg-highlight/20 hover:bg-highlight/30 transition-colors"
-            >
-              {isOpen ? <FaTimes className="text-highlight" /> : <FaBars className="text-highlight" />}
-            </motion.button>
-          </div>
+    <nav className="fixed inset-x-0 top-0 z-50 border-b border-white/[.08] bg-[#080d17]/85 backdrop-blur-xl" aria-label="Main navigation">
+      <div className="mx-auto flex h-[4.5rem] max-w-7xl items-center justify-between px-5 sm:px-8 lg:px-10">
+        <Link to="hero" smooth className="cursor-pointer text-lg font-bold tracking-tight text-white" aria-label="Kratish Mewada home">
+          KM<span className="text-highlight">.</span>
+        </Link>
+        <div className="hidden items-center gap-1 md:flex">
+          {items.map((item) => (
+            <Link key={item.to} to={item.to} smooth offset={-72} className="cursor-pointer rounded-lg px-3 py-2 text-sm text-text-muted transition hover:bg-white/[.05] hover:text-white">
+              {item.label}
+            </Link>
+          ))}
         </div>
-
-        {/* Mobile Menu */}
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-primary/95 backdrop-blur-xl rounded-b-lg border-t border-highlight/20"
-          >
-            <div className="px-2 pt-2 pb-3 space-y-1">
-              {[
-                { to: 'hero', label: 'Home' },
-                { to: 'about', label: 'About' },
-                { to: 'skills', label: 'Skills' },
-                { to: 'projects', label: 'Projects' },
-                { to: 'experience', label: 'Experience' },
-                { to: 'contact', label: 'Contact' },
-              ].map((item) => (
-                <Link
-                  key={item.to}
-                  to={item.to}
-                  smooth={true}
-                  onClick={() => setIsOpen(false)}
-                  className="block px-3 py-2 text-text hover:text-highlight hover:bg-highlight/10 rounded-lg transition-colors"
-                >
-                  {item.label}
-                </Link>
-              ))}
-            </div>
-          </motion.div>
-        )}
+        <button type="button" className="rounded-lg border border-white/10 p-2 text-white md:hidden" aria-label={isOpen ? 'Close menu' : 'Open menu'} aria-expanded={isOpen} onClick={() => setIsOpen((open) => !open)}>
+          {isOpen ? <FaTimes /> : <FaBars />}
+        </button>
       </div>
-    </motion.nav>
+      {isOpen && <div className="border-t border-white/[.08] bg-[#080d17] px-5 py-3 md:hidden">
+        {items.map((item) => (
+          <Link key={item.to} to={item.to} smooth offset={-72} onClick={() => setIsOpen(false)} className="block cursor-pointer rounded-lg px-3 py-3 text-sm text-text-muted hover:bg-white/[.05] hover:text-white">
+            {item.label}
+          </Link>
+        ))}
+      </div>}
+    </nav>
   );
 };
 
