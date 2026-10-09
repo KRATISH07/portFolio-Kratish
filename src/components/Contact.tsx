@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { FaEnvelope, FaGithub, FaLinkedin, FaMapMarkerAlt } from 'react-icons/fa';
 
 const links = [
-  { label: 'Email', value: 'kratishmewada99@gmail.com', href: 'mailto:kratishmewada99@gmail.com', icon: FaEnvelope },
+  { label: 'Email', value: 'kratishmewada111@gmail.com', href: 'mailto:kratishmewada111@gmail.com', icon: FaEnvelope },
   { label: 'GitHub', value: 'github.com/KRATISH07', href: 'https://github.com/KRATISH07', icon: FaGithub },
   { label: 'LinkedIn', value: 'Connect with me', href: 'https://in.linkedin.com/in/kratish-mewada-348029347', icon: FaLinkedin },
 ];
